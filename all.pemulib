@@ -9,6 +9,7 @@
  ; @Last-Modified: 21-07-2021
 
 #INCLUDE "base.pemulib"
+#INCLUDE "pbitfinder.pemulib"
 #INCLUDE "strlen.pemulib"
 #INCLUDE "io/characters.pemulib"
 #INCLUDE "io/get_number.pemulib"

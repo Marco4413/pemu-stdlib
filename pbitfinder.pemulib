@@ -1,0 +1,33 @@
+
+;;
+ ; @File
+ ; @Author: [hds536jhmk](https://github.com/hds536jhmk)
+ ; @Name: pbitfinder.pemulib
+ ; @Description: Finds the Bit Count of the Processor
+ ; @License: MIT
+ ; @Created-At   : 19-09-2021
+ ; @Last-Modified: 19-09-2021
+
+#INCLUDE "base.pemulib"
+
+;;
+ ; @Function
+ ; @Name: pbitfinder
+ ; @Description: Finds the Bit Count of the Processor
+ ; @Returns { Number }: The Bit Count of the Processor
+#DA {
+    _pbitfinder_one: 1
+    _pbitfinder_bit_count: 0
+}
+f_pbitfinder:
+    DATA stdlib_temp 1
+
+    _pbitfinder_loop:
+        INC _pbitfinder_bit_count
+        SHL stdlib_temp _pbitfinder_one
+    JNC _pbitfinder_loop
+
+    POP stdlib_temp
+    PUSH _pbitfinder_bit_count
+    PUSH stdlib_temp
+    RET

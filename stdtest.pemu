@@ -6,12 +6,12 @@
  ; @Description: A PEMU program that makes sure that all standard libraries compile and work as intended.
  ; @License: MIT
  ; @Created-At   : 19-07-2021
- ; @Last-Modified: 21-07-2021
+ ; @Last-Modified: 19-09-2021
 
 ;;
  ; @Processor-Requirements
  ; @Min-Bits  : 16
- ; @Min-Memory: 512
+ ; @Min-Memory: 640
  ; @Min-Clock : 1M
 
 CALL f_main
@@ -30,6 +30,9 @@ input_number: #DW 0
 input_string_label: #DW [1] #DS "String Input: " #DW @STDLIB_NULL
 input_string: #DA { [2] @INPUT_STRING_LENGTH } #DA [@INPUT_STRING_LENGTH] #DW @STDLIB_NULL
 
+processor_bit_count_label: #DW [1] #DS "Processor's Bit Count: " #DW @STDLIB_NULL
+processor_bit_count: #DW 0
+
 ; This is a string which is going to be animated
 animated_string_interval: #DW 500
 animated_string_frames: #DW 10
@@ -38,6 +41,10 @@ animated_string:
     #DS "Loading..." #DW @STDLIB_NULL
 
 f_main:
+    ; Testing the Function to get Processor's Bit Count
+    CALL f_pbitfinder
+    POP processor_bit_count
+
     ; Testing String Length Function
     PUSH animated_string
     CALL f_strlen
@@ -66,8 +73,14 @@ f_main:
     PUSH animated_string_frames
     CALL f_timer
 
-    ; Testing Output of Input Functions
+    ; Outputting the Bit Count of the Processor
     OUTC stdlib_null
+    PUSH processor_bit_count_label
+    CALL f_print
+    OUTI processor_bit_count
+
+    ; Testing Output of Input Functions
+    OUTC stdlib_newline
     PUSH input_string
     CALL f_print
 
