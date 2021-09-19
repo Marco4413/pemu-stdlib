@@ -16,7 +16,9 @@
  ; @Description: Finds the Bit Count of the Processor
  ; @Returns { Number }: The Bit Count of the Processor
 #DA {
-    _pbitfinder_one: 1
+    ; The Step if set to 8 might break if I'll ever get to make a 12 bit Processor
+    ;  which is possible, but I hope I'll never do that
+    _pbitfinder_step: 8
     _pbitfinder_bit_count: 0
 }
 f_pbitfinder:
@@ -24,8 +26,9 @@ f_pbitfinder:
 
     _pbitfinder_loop:
         INC _pbitfinder_bit_count
-        SHL stdlib_temp _pbitfinder_one
+        SHL stdlib_temp _pbitfinder_step
     JNC _pbitfinder_loop
+    MUL _pbitfinder_bit_count _pbitfinder_step
 
     POP stdlib_temp
     PUSH _pbitfinder_bit_count
