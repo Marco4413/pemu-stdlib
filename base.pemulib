@@ -6,13 +6,19 @@
  ; @Description: A PEMU Library that adds common generic labels for the standard libraries to use.
  ; @License: MIT
  ; @Created-At   : 19-07-2021
- ; @Last-Modified: 21-07-2021
+ ; @Last-Modified: 26-09-2021
 
 ; Since this is the base file and should always be included first
 ;  it's got an HLT instruction to prevent from executing library code
 ;  and this also makes sure that it's the only HLT instruction used to do so
 ;  in the whole stdlib
 HLT
+
+;;
+ ; @Constant { Number }
+ ; @Name: VERSION
+ ; @Description: The Version Number of the Standard Library
+@STDLIB_VERSION 1
 
 ;;
  ; @Constant { Number&Character }
