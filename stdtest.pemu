@@ -6,12 +6,12 @@
  ; @Description: A PEMU program that makes sure that all standard libraries compile and work as intended.
  ; @License: MIT
  ; @Created-At   : 19-07-2021
- ; @Last-Modified: 19-09-2021
+ ; @Last-Modified: 26-09-2021
 
 ;;
  ; @Processor-Requirements
  ; @Min-Bits  : 16
- ; @Min-Memory: 640
+ ; @Min-Memory: 768
  ; @Min-Clock : 1M
 
 CALL f_main
@@ -78,6 +78,16 @@ f_main:
     PUSH processor_bit_count_label
     CALL f_print
     OUTI processor_bit_count
+
+    ; Outputting a Random Number
+    OUTC stdlib_newline
+    ; The Cool thing about calling init here...
+    ; Is that the seed is pretty random because of the user input above,
+    ;  so it depende on the speed of who's running the program
+    CALL f_init_rng_seed
+    CALL f_lcg_rng
+    POP stdlib_temp
+    OUTI stdlib_temp
 
     ; Testing Output of Input Functions
     OUTC stdlib_newline

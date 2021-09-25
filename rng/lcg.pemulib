@@ -1,0 +1,41 @@
+
+;;
+ ; @File
+ ; @Author: [hds536jhmk](https://github.com/hds536jhmk)
+ ; @Name: lcg.pemulib
+ ; @Description: Implements a Linear Congruential Generator, this works for 8/16/24 bit Words
+ ; @License: MIT
+ ; @Created-At   : 25-09-2021
+ ; @Last-Modified: 26-09-2021
+
+#INCLUDE "../base.pemulib"
+#INCLUDE "rng_base.pemulib"
+
+;;
+ ; @Function
+ ; @Name: lcg_rng
+ ; @Description: Generates a Random Number using a Linear Congruential Generator which works for 8/16/24 bit Words
+ ; @Returns { Number }: A Random Generated Number
+;;
+ ; @Function
+ ; @Name: rng8
+ ; @Description: This is an RNG Algorithm that works on 8 bit Processors
+ ; @Returns { Number }: A Random Generated Number
+#DA {
+    ; This Algorithm should work with all Word sizes
+    ; These values were taken from the following page:
+    ; https://en.wikipedia.org/wiki/Linear_congruential_generator#Parameters_in_common_use -> Borland C/C++
+    _rng8_m: -1 ; Modulus is the highest value that can be represented in a Word so it's -1
+    _rng8_a: 22695477
+    _rng8_c: 1
+}
+f_lcg_rng:
+f_rng8:
+    MUL stdlib_rng_seed _rng8_a
+    ADD stdlib_rng_seed _rng8_c
+    MOD stdlib_rng_seed _rng8_m
+
+    POP stdlib_temp
+    PUSH stdlib_rng_seed
+    PUSH stdlib_temp
+    RET

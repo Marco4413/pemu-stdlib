@@ -1,0 +1,42 @@
+
+;;
+ ; @File
+ ; @Author: [hds536jhmk](https://github.com/hds536jhmk)
+ ; @Name: rng_base.pemulib
+ ; @Description: Adds base labels and functions that are used by the rng library
+ ; @License: MIT
+ ; @Created-At   : 25-09-2021
+ ; @Last-Modified: 26-09-2021
+
+#INCLUDE "../base.pemulib"
+
+;;
+ ; @Constant { Number }
+ ; @Name: FIRST_VALID_SEED
+ ; @Description: It's the default value for stdlib_rng_seed and the value it's set by validate_rng_seed if invalid
+@STDLIB_FIRST_VALID_SEED 1
+
+;;
+ ; @Label { Number }
+ ; @Name: rng_seed
+ ; @Description: Contains the current RNG Seed, can be changed to set the RNG Seed
+stdlib_rng_seed: #DW @STDLIB_FIRST_VALID_SEED
+
+;;
+ ; @Function
+ ; @Name: init_rng_seed
+ ; @Description: Initializes the rng seed to the value of TMS
+f_init_rng_seed:
+    TMS stdlib_rng_seed
+    RET
+
+;;
+ ; @Function
+ ; @Name: validate_rng_seed
+ ; @Description: Checks if the RNG Seed is valid (Not equal to 0) and sets it to @STDLIB_FIRST_VALID_SEED if not
+f_validate_rng_seed:
+    CMP stdlib_rng_seed stdlib_zero
+    JNE _validate_rng_seed_end
+    DATA stdlib_rng_seed @STDLIB_FIRST_VALID_SEED
+_validate_rng_seed_end:
+    RET

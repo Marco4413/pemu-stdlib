@@ -1,0 +1,49 @@
+
+;;
+ ; @File
+ ; @Author: [hds536jhmk](https://github.com/hds536jhmk)
+ ; @Name: xorshift.pemulib
+ ; @Description: Implements an Xorshift RNG, this works for 16/24 bit Words
+ ; @License: MIT
+ ; @Created-At   : 25-09-2021
+ ; @Last-Modified: 26-09-2021
+
+#INCLUDE "../base.pemulib"
+#INCLUDE "rng_base.pemulib"
+
+;;
+ ; @Function
+ ; @Name: xor_rng
+ ; @Description: Generates a Random Number using Xorshift which works for 16/24 bit Words
+ ; @Returns { Number }: A Random Generated Number
+;;
+ ; @Function
+ ; @Name: rng16
+ ; @Description: This is an RNG Algorithm that works on 16 bit Processors
+ ; @Returns { Number }: A Random Generated Number
+#DA {
+    ; These functions DO NOT work with 8 bit Processors
+    ; These values were taken from the following page:
+    ; http://www.retroprogramming.com/2017/07/xorshift-pseudorandom-numbers-in-z80.html
+    _rng16_a: 7
+    _rng16_b: 9
+    _rng16_c: 8
+}
+f_xor_rng:
+f_rng16:
+    MOV stdlib_temp stdlib_rng_seed
+    SHL stdlib_temp _rng16_a
+    XOR stdlib_rng_seed stdlib_temp
+
+    MOV stdlib_temp stdlib_rng_seed
+    SHR stdlib_temp _rng16_b
+    XOR stdlib_rng_seed stdlib_temp
+    
+    MOV stdlib_temp stdlib_rng_seed
+    SHL stdlib_temp _rng16_c
+    XOR stdlib_rng_seed stdlib_temp
+
+    POP stdlib_temp
+    PUSH stdlib_rng_seed
+    PUSH stdlib_temp
+    RET

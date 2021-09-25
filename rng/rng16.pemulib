@@ -1,0 +1,13 @@
+
+;;
+ ; @File
+ ; @Author: [hds536jhmk](https://github.com/hds536jhmk)
+ ; @Name: rng16.pemulib
+ ; @Description: Implements an RNG that works with 16 bit Words
+ ; @License: MIT
+ ; @Created-At   : 25-09-2021
+ ; @Last-Modified: 26-09-2021
+
+#INCLUDE "../base.pemulib"
+#INCLUDE "rng_base.pemulib"
+#INCLUDE "xorshift.pemulib" ; The RNG is implemented here

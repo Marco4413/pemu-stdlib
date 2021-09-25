@@ -6,7 +6,7 @@
  ; @Description: A PEMU Library that includes all standard libraries.
  ; @License: MIT
  ; @Created-At   : 19-07-2021
- ; @Last-Modified: 19-09-2021
+ ; @Last-Modified: 26-09-2021
 
 #INCLUDE "base.pemulib"
 #INCLUDE "pbitfinder.pemulib"
@@ -17,5 +17,11 @@
 #INCLUDE "io/keys.pemulib"
 #INCLUDE "io/print.pemulib"
 #INCLUDE "io/printl.pemulib"
+#INCLUDE "rng/lcg.pemulib"
+#INCLUDE "rng/rng_base.pemulib"
+#INCLUDE "rng/rng8.pemulib"
+#INCLUDE "rng/rng16.pemulib"
+#INCLUDE "rng/rng24.pemulib"
+#INCLUDE "rng/xorshift.pemulib"
 #INCLUDE "timings/sleep.pemulib"
 #INCLUDE "timings/timer.pemulib"

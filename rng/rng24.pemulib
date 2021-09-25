@@ -1,0 +1,45 @@
+
+;;
+ ; @File
+ ; @Author: [hds536jhmk](https://github.com/hds536jhmk)
+ ; @Name: rng24.pemulib
+ ; @Description: Implements an RNG that works with 24 bit Words
+ ; @License: MIT
+ ; @Created-At   : 25-09-2021
+ ; @Last-Modified: 26-09-2021
+
+#INCLUDE "../base.pemulib"
+#INCLUDE "rng_base.pemulib"
+
+;;
+ ; @Function
+ ; @Name: rng24
+ ; @Description: This is an RNG Algorithm that works on 24 bit Processors
+ ; @Returns { Number }: A Random Generated Number
+#DA {
+    ; This function DOES NOT work with 8 or 16 bit Processors
+    ; Since I couldn't find anything about 24 bit xorshift
+    ;  I took the average between the 16 bit version (From rng16.pemulib) and
+    ;  the 32 bit one found on Wikipedia: https://en.wikipedia.org/wiki/Xorshift#Example_implementation
+    ; So this function may not be perfect, you can use the 8/16 bit variants instead
+    _rng24_a: 10
+    _rng24_b: 14
+    _rng24_c: 7
+}
+f_rng24:
+    MOV stdlib_temp stdlib_rng_seed
+    SHL stdlib_temp _rng24_a
+    XOR stdlib_rng_seed stdlib_temp
+
+    MOV stdlib_temp stdlib_rng_seed
+    SHR stdlib_temp _rng24_b
+    XOR stdlib_rng_seed stdlib_temp
+    
+    MOV stdlib_temp stdlib_rng_seed
+    SHL stdlib_temp _rng24_c
+    XOR stdlib_rng_seed stdlib_temp
+
+    POP stdlib_temp
+    PUSH stdlib_rng_seed
+    PUSH stdlib_temp
+    RET
