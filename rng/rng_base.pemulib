@@ -6,12 +6,12 @@
  ; @Description: Adds base labels and functions that are used by the rng library
  ; @License: MIT
  ; @Created-At   : 25-09-2021
- ; @Last-Modified: 26-09-2021
+ ; @Last-Modified: 03-10-2021
 
 #INCLUDE "../base.pemulib"
 
 ;;
- ; @Constant { Number }
+ ; @CompilerVariable { Number }
  ; @Name: FIRST_VALID_SEED
  ; @Description: It's the default value for stdlib_rng_seed and the value it's set by validate_rng_seed if invalid
 @STDLIB_FIRST_VALID_SEED 1

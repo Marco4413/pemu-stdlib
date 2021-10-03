@@ -6,7 +6,7 @@
  ; @Description: A PEMU Library that adds the f_get_number function.
  ; @License: MIT
  ; @Created-At   : 19-07-2021
- ; @Last-Modified: 21-07-2021
+ ; @Last-Modified: 03-10-2021
 
 #INCLUDE "../base.pemulib"
 #INCLUDE "../timings/sleep.pemulib"
@@ -14,7 +14,7 @@
 #INCLUDE "print.pemulib"
 
 ;;
- ; @Constant { Number }
+ ; @CompilerVariable { Number }
  ; @Name: TEN
  ; @Description: It's the number 10
 @STDLIB_TEN 10

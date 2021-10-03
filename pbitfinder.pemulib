@@ -6,9 +6,15 @@
  ; @Description: Finds the Bit Count of the Processor
  ; @License: MIT
  ; @Created-At   : 19-09-2021
- ; @Last-Modified: 19-09-2021
+ ; @Last-Modified: 03-10-2021
 
 #INCLUDE "base.pemulib"
+
+;;
+ ; @CompilerVariable { Number }
+ ; @Name: PBITFINDER_STEP
+ ; @Description: The step that will be used by f_pbitfinder to identify the Processor's bit count
+@STDLIB_PBITFINDER_STEP 8
 
 ;;
  ; @Function
@@ -16,9 +22,7 @@
  ; @Description: Finds the Bit Count of the Processor
  ; @Returns { Number }: The Bit Count of the Processor
 #DA {
-    ; The Step if set to 8 might break if I'll ever get to make a 12 bit Processor
-    ;  which is possible, but I hope I'll never do that
-    _pbitfinder_step: 8
+    _pbitfinder_step: @STDLIB_PBITFINDER_STEP
     _pbitfinder_bit_count: 0
 }
 f_pbitfinder:
