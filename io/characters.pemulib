@@ -1,12 +1,12 @@
 
 ;;
  ; @File
- ; @Author: [hds536jhmk](https://github.com/hds536jhmk)
+ ; @Author: [Marco4413](https://github.com/Marco4413)
  ; @Name: characters.pemulib
  ; @Description: A PEMU Library that adds common key labels for the standard libraries to use.
  ; @License: MIT
  ; @Created-At   : 20-07-2021
- ; @Last-Modified: 03-10-2021
+ ; @Last-Modified: 11-06-2022
 
 #INCLUDE "../base.pemulib"
 

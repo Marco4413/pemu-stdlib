@@ -1,12 +1,12 @@
 
 ;;
  ; @File
- ; @Author: [hds536jhmk](https://github.com/hds536jhmk)
+ ; @Author: [Marco4413](https://github.com/Marco4413)
  ; @Name: xorshift.pemulib
  ; @Description: Implements an Xorshift RNG, this works for 16/24 bit Words
  ; @License: MIT
  ; @Created-At   : 25-09-2021
- ; @Last-Modified: 26-09-2021
+ ; @Last-Modified: 11-06-2022
 
 #INCLUDE "../base.pemulib"
 #INCLUDE "rng_base.pemulib"

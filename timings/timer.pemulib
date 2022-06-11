@@ -1,12 +1,12 @@
 
 ;;
  ; @File
- ; @Author: [hds536jhmk](https://github.com/hds536jhmk)
+ ; @Author: [Marco4413](https://github.com/Marco4413)
  ; @Name: timer.pemulib
  ; @Description: A PEMU Library that adds the f_timer function
  ; @License: MIT
  ; @Created-At   : 20-07-2021
- ; @Last-Modified: 21-07-2021
+ ; @Last-Modified: 11-06-2022
 
 #INCLUDE "../base.pemulib"
 

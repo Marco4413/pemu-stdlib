@@ -4,11 +4,11 @@
 
 ## What's PEMU?
 
-[PEMU](https://github.com/hds536jhmk/ProcessorEmulator) is a Processor Emulator made in Java.
+[PEMU](https://github.com/Marco4413/ProcessorEmulator) is a Processor Emulator made in Java.
 
 ## What's PEMU stdlib?
 
-[PEMU stdlib](https://github.com/hds536jhmk/pemu-stdlib) is the official PEMU standard library.
+[PEMU stdlib](https://github.com/Marco4413/pemu-stdlib) is the official PEMU standard library.
 
 It's a collection of stuff that is commonly used in PEMU programs.
 
